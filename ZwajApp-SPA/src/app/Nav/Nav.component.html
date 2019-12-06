@@ -13,13 +13,15 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">المستشفيات</a>
       </li>
-      
-      
+
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="الرقم الوظيفي" aria-label="empno">
-      <input class="form-control mr-sm-2" type="password" placeholder="كلمة السر" aria-label="password">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">دخول</button>
+
+    <form (ngSubmit)="login()" #loginForm="ngForm" class="form-inline my-2 my-lg-0">
+      <input name="username" class="form-control mr-sm-2" type="text" [(ngModel)]="model.username"
+        placeholder="الرقم الوظيفي" aria-label="empno">
+      <input name="password" class="form-control mr-sm-2" type="password" [(ngModel)]="model.password"
+        placeholder="كلمة السر" aria-label="password">
+      <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">دخول</button>
     </form>
   </div>
 </nav>
